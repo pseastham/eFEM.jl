@@ -1,33 +1,33 @@
 module eFEM
 
 # Custom types
-include("eFEM/MeshTypes.jl")
-include("eFEM/ParameterTypes.jl")
-include("eFEM/ProblemTypes.jl")
-include("eFEM/SolutionTypes.jl")
+include("MeshTypes.jl")
+include("ParameterTypes.jl")
+include("ProblemTypes.jl")
+include("SolutionTypes.jl")
 
 # Mesh input/generation
-include("eFEM/MeshGeneration.jl")
-include("eFEM/GMSHreader.jl")
-include("eFEM/MeshTransform.jl")
+include("MeshGeneration.jl")
+include("GMSHreader.jl")
+include("MeshTransform.jl")
 
 # Generate Matrices
-include("eFEM/Basis.jl")
-include("eFEM/BilinearForms.jl")
-include("eFEM/MatrixGeneration.jl")
-include("eFEM/BoundaryConditions.jl")
+include("Basis.jl")
+include("BilinearForms.jl")
+include("MatrixGeneration.jl")
+include("BoundaryConditions.jl")
 
 # Solve Problem
-include("eFEM/Assembly.jl")
-include("eFEM/TimeStepping.jl")
-include("eFEM/Solver.jl")
+include("Assembly.jl")
+include("TimeStepping.jl")
+include("Solver.jl")
 
 # PostProcessing
-include("eFEM/vtkExport.jl")
-include("eFEM/ErrorAnalysis.jl")
-include("eFEM/DomainQuadrature.jl")
-include("eFEM/PostProcessing.jl")
-include("eFEM/TracerGenerate.jl")
+include("vtkExport.jl")
+include("ErrorAnalysis.jl")
+include("DomainQuadrature.jl")
+include("PostProcessing.jl")
+include("TracerGenerate.jl")
 
 export AbstractMesh
 
