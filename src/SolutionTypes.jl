@@ -1,3 +1,5 @@
+using SparseArrays
+
 # File to be loaded into eFEMpart
 
 abstract type AbstractSolution  end
