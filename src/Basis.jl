@@ -177,7 +177,7 @@ OUTPUT:
               Interpolated value
 """
 function shapeEval(coef::Vector{T},basis::Vector{T}) where T<:Real
-  return LinearAlgebra.dot(coef,basis)
+  return dot(coef,basis)
 end
 
 """
