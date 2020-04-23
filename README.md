@@ -9,6 +9,6 @@
 
 eFEM.jl is an unregistered package only available on Linux systems. To install eFEM.jl using the REPL, type
 
-pkg> add https://github.com/pseastham/eFEM.jl
+`pkg> add https://github.com/pseastham/eFEM.jl`
 
-To enter the Pkg environment from the REPL, type ].
+To enter the Pkg environment from the REPL, type `]`.
