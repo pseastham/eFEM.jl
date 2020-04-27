@@ -1,5 +1,7 @@
 # File loaded into eFEMpart
 
+import LinearAlgebra: dot
+
 """
   shape2D(s::Real,t::Real,order::Int)
 
