@@ -5,6 +5,11 @@
 [![Build Status](https://travis-ci.com/pseastham/eFEM.jl.svg?branch=master)](https://travis-ci.com/pseastham/eFEM.jl)
 [![Codecov](https://codecov.io/gh/pseastham/eFEM.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/pseastham/eFEM.jl)
 
+Finite Element code in the [Julia language](https://julialang.org/) focused on fluid-dynamics applications.
+
+This repository allows the use of Finite Elements discretizations to solve
+common problems in fluid dynamics. 
+
 ## Installation
 
 eFEM.jl is an unregistered package. To install eFEM.jl using the REPL, type
@@ -13,9 +18,15 @@ eFEM.jl is an unregistered package. To install eFEM.jl using the REPL, type
 
 To enter the Pkg environment from the REPL, type `]`.
 
+## Meshes
+
+For simple geometries (rectangles...), you can use the built-in 
+geometry code but for more complicated geometries we suggest building your mesh with 
+an external library (such as [GMSH](http://gmsh.info/)).
+
 ## Equations
 
-For now, eFEM.jl provides frameworks to handle systems using the following equations:
+As of right now, the following equations are solvable:
 
 * Poisson's Equation (`:Poisson2D`)
 
