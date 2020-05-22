@@ -1,6 +1,5 @@
-using eFEM
-using Test
+using SafeTestsets
 
-@testset "eFEM.jl" begin
-    # Write your own tests here.
+@time begin
+    #@time @safetestset "Test Name" begin include("testfile.jl") end
 end
