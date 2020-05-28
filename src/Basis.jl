@@ -1,5 +1,7 @@
 # File loaded into eFEMpart
 
+import LinearAlgebra: dot
+
 """
   shape2D(s::Real,t::Real,order::Int)
 
@@ -177,7 +179,7 @@ OUTPUT:
               Interpolated value
 """
 function shapeEval(coef::Vector{T},basis::Vector{T}) where T<:Real
-  return LinearAlgebra.dot(coef,basis)
+  return dot(coef,basis)
 end
 
 """

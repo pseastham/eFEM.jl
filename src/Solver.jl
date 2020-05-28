@@ -4,6 +4,8 @@
 ###### General Framework #######
 ################################
 
+import LinearAlgebra: lu
+
 # General solver for scalar problems
 function solve(prob::Problem,mesh::S,param::T) where 
                 {S<:AbstractMesh,T<:AbstractParameter}

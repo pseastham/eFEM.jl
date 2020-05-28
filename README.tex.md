@@ -30,30 +30,30 @@ As of right now, the following equations are solvable:
 
 * Poisson's Equation (`:Poisson2D`)
 
-<p align="center"><img src="/tex/a1e55dd0d6f8247d8b884e241419c34e.svg?invert_in_darkmode&sanitize=true" align=middle width=75.003885pt height=17.399144399999997pt/></p>
+$$ -\nabla^2 u = f$$
 
 * Darcy's Equation (`:Darcy2D`)
 
-<p align="center"><img src="/tex/3ba9ca5ab07d4c987d667c9f4956512c.svg?invert_in_darkmode&sanitize=true" align=middle width=118.8451539pt height=19.726228499999998pt/></p>
+$$ -\nabla\cdot\big(\alpha \nabla u\big) = f$$
 
 * Advection-Diffusion Equation (`:AdvDiff2D`)
 
-<p align="center"><img src="/tex/50aaf8695606a64a2aba3412a4cd7ca3.svg?invert_in_darkmode&sanitize=true" align=middle width=178.72117724999998pt height=19.726228499999998pt/></p>
+$$ -\mathbf{u}\cdot \nabla c = \nabla\cdot\big(\kappa \nabla c\big) + f$$
 
 * Stokes' Equation (`:Stokes2D`)
 
-<p align="center"><img src="/tex/f7e35892f79b733caf605eb9762d82c0.svg?invert_in_darkmode&sanitize=true" align=middle width=170.03593694999998pt height=19.726228499999998pt/></p>
-<p align="center"><img src="/tex/efbfbcd0f130f2b91fea06b34868e681.svg?invert_in_darkmode&sanitize=true" align=middle width=66.2097216pt height=11.232861749999998pt/></p>
+$$ -\nabla\cdot\big(\mu\mathbb{D}(\mathbf{u})\big) = \nabla p + \mathbf{f}$$
+$$ \nabla\cdot\mathbf{u} = 0 $$
 
 * Brinkman's Equation (`:Brinkman2D`)
 
-<p align="center"><img src="/tex/07e57a540d72768f0e3d8ca41934ad8a.svg?invert_in_darkmode&sanitize=true" align=middle width=200.24691225pt height=19.726228499999998pt/></p>
-<p align="center"><img src="/tex/efbfbcd0f130f2b91fea06b34868e681.svg?invert_in_darkmode&sanitize=true" align=middle width=66.2097216pt height=11.232861749999998pt/></p>
+$$ -\nabla\cdot\big(\mu\nabla\mathbf{u}\big) + \alpha\mathbf{u}= \nabla p + \mathbf{f}$$
+$$ \nabla\cdot\mathbf{u} = 0 $$
 
 * Brinkman's Multiphase Equation (`:BrinkmanMP2D`)
 
-<p align="center"><img src="/tex/8b86a228922df2e57a458e4cbd5379e8.svg?invert_in_darkmode&sanitize=true" align=middle width=186.47236739999997pt height=17.399144399999997pt/></p>
-<p align="center"><img src="/tex/efbfbcd0f130f2b91fea06b34868e681.svg?invert_in_darkmode&sanitize=true" align=middle width=66.2097216pt height=11.232861749999998pt/></p>
+$$ -\alpha_1\nabla^2\mathbf{u} + \alpha_2\mathbf{u} + \alpha_3 p = \mathbf{f}$$
+$$ \nabla\cdot\mathbf{u} = 0 $$
 
 All parameterized equations can be solvable with either constant or variable-in-space parameters. Additionally, Axisymmetric version of the Advection-Diffusion and Stokes equations are available with the Operator Types of `:AdvDiffAS` and `:StokesAS`, respectively. 
 
