@@ -1,5 +1,7 @@
 using Documenter, eFEM
 
+push!(LOAD_PATH,"../src/")
+
 makedocs(;
     modules=[eFEM],
     format=Documenter.HTML(),
