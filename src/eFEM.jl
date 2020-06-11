@@ -60,13 +60,7 @@ export ScalarSolution,
 export squareMesh,
        squareMeshFluid,
        axisymMesh,
-       axisymFluid,
-       FluidMesh,
-       ScalarMesh,
-       Mesh,
-       meshgrid,
-       ElementsToArray,
-       NodesToArray
+       axisymFluid
 
 # MeshTransform.jl
 export pointTransform,
