@@ -59,6 +59,8 @@ export ScalarSolution,
 # MeshGeneration.jl
 export squareMesh,
        squareMeshFluid,
+       Mesh,
+       FluidMesh,
        axisymMesh,
        axisymFluid
 

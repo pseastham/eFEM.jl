@@ -27,8 +27,8 @@ using eFEM, Test
 
   # save solution
   vtkname = Path("test-data","laplace_soln")
-  sd = ScalarData(sol.u)
-  sn = ScalarNames("testing_var")
+  sd = ScalarData(sol.u,sol.u)
+  sn = ScalarNames("testing_var","testing_var_2")
   vtksave(mesh,sd,sn,vtkname)
 
   rm("test-data/laplace_soln.vtk")
@@ -60,8 +60,8 @@ end
   vtkname = Path("test-data","advdiff_soln")
   sd = ScalarData(sol.u)
   sn = ScalarNames("testing_var")
-  vd = VectorData([wx,wy])
-  vn = VectorNames("velocity")
+  vd = VectorData([wx,wy],[wx,wy])
+  vn = VectorNames("velocity","velocity_2")
   vtksave(mesh,sd,sn,vd,vn,vtkname)
 
   rm("test-data/advdiff_soln.vtk")
@@ -123,11 +123,9 @@ end
   sol = solve(prob,mesh,param)
 
   vtkname = Path("test-data","mpb_soln")
-  sd = ScalarData(sol.p)
-  sn = ScalarNames("pressure")
   vd = VectorData([sol.u,sol.v])
   vn = VectorNames("velocity")
-  vtksave(mesh,sd,sn,vd,vn,vtkname)
+  vtksave(mesh,vd,vn,vtkname)
 
   rm("test-data/mpb_soln.vtk")
 end

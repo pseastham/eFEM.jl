@@ -1,11 +1,5 @@
 using eFEM, Test
 
 # mesh input from gmsh
-
-# mesh creation from square
-
-# vtk export tests
-
-#@testset "get_orientation tests" begin
-#
-#end
+mesh1 = Mesh("test-data/step.msh")
+mesh2 = FluidMesh("test-data/step.msh")
