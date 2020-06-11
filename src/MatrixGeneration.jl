@@ -42,16 +42,14 @@ end
 function AdvDiff2DMatrix(mesh,farr,param::T) where T<:AbstractConstantParameter
     D       = assembleScalar(mesh,localLaplace2D!,0.0)
     A       = assembleScalar(mesh,localAdvDiff2D!,param)
-    SUPGmod = assembleScalar(mesh,localAdvDiff2D_SUPGmod!,param)
     
-    #Stiff = A + param.κ*D
     f = WeakScalar2D(mesh,farr)
-    fmod = WeakSUPG2D(mesh,farr,param)
 
-    Stiff = A + param.κ*D
-    F = f + fmod
+    Stiff = A + D/param.Pe
+    F = f 
     return Stiff, F
 end
+
 # this is one used for precipSim adv-diff problem
 function AdvDiff2DMatrix(mesh,farr,param::T) where T<:AbstractVariableParameter
     D = assembleScalar(mesh,localDarcy2D!,param.Pe)
