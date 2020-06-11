@@ -66,3 +66,31 @@ end
 
   rm("test-data/advdiff_soln.vtk")
 end
+
+@testset "Stokes Example" begin
+  mesh = squareMeshFluid([-1.2,1.1,-1.2,1.1],12)
+
+  param = FluidParam(2.3)
+  OperatorType = :Stokes2D
+
+  dNodes = Dirichlet(:left,:bottom,:top)
+  nNodes = Neumann(:right)
+  Nodes = [dNodes,nNodes]
+
+  dUBCf = Dirichlet((x,y) -> (x==-1.2 ? -(1.1-y)*(-1.2-y) : 0.0))
+  dVBCf = Dirichlet((x,y) -> 0.0)
+  bcfun = [dUBCf,dVBCf]
+
+  prob = Problem(mesh,Nodes,bcfun,OperatorType)
+  sol = solve(prob,mesh,param)
+
+  # save solution
+  vtkname = Path("test-data","stokes_soln")
+  sd = ScalarData(sol.p)
+  sn = ScalarNames("pressure")
+  vd = VectorData([sol.u,sol.v])
+  vn = VectorNames("velocity")
+  vtksave(mesh,sd,sn,vd,vn,vtkname)
+
+  rm("test-data/stokes_soln.vtk")
+end
