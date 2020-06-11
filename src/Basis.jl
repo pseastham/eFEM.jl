@@ -428,29 +428,23 @@ INPUT:
              Mesh object containing nodes and connectivity
   prob:   [AbstractProblem]
              Problem object containing boundary information
-  LinOp:  [AbstractLinearOperator]
-             Linear Operator object containing discretized operator matrix and
-               forcing vector
 
 OUTPUT:
   none
 """
-function FEMstats(mesh,prob,LinOp)
+function FEMstats(mesh,prob)
   numTnodes = length(mesh.xy)
   Nel       = length(mesh.cm)
   numDnodes = length(prob.bcid[:dNodes])
   numNnodes = length(prob.bcid[:nNodes])
-  sysSize   = length(LinOp.F)
 
   println("# of total nodes:        ",numTnodes)
   println("# of elements:           ",Nel)
   println("# of Dirichlet BC nodes: ",numDnodes)
   println("# of Neumann BC nodes:   ",numNnodes)
   println("% boundary nodes:        ",
-          round(numTnodes/(numDnodes+numNnodes),2),"%")
-  println("Size of linear system:   ",sysSize," x ",sysSize)
+          round(numTnodes/(numDnodes+numNnodes),digits=2),"%")
 end
-
 function FEMstats(mesh)
   numTnodes = length(mesh.xy)
   Nel       = length(mesh.cm)

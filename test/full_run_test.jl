@@ -25,6 +25,9 @@ using eFEM, Test
   # solve problem
   sol = solve(prob,mesh)
 
+  FEMstats(mesh)
+  FEMstats(mesh,prob)
+
   # save solution
   vtkname = Path("test-data","laplace_soln")
   sd = ScalarData(sol.u,sol.u)
@@ -93,6 +96,34 @@ end
   vtksave(mesh,sd,sn,vd,vn,vtkname)
 
   rm("test-data/stokes_soln.vtk")
+end
+
+@testset "Stokes Axisymmetric Example" begin
+  mesh = squareMeshFluid([-1.2,1.1,0.0,1.1],12)
+
+  param = FluidParam(2.3)
+  OperatorType = :StokesAS
+
+  dUNodes = Dirichlet(:left,:top,:right)
+  dVNodes = Dirichlet(:left,:top,:bottom,:right)
+  Nodes = [dUNodes,dVNodes]
+
+  dUBCf = Dirichlet((x,y) -> (x==-1.2 ? -(1.1-y)*(-1.2-y) : 0.0))
+  dVBCf = Dirichlet((x,y) -> 0.0)
+  bcfun = [dUBCf,dVBCf]
+
+  prob = Problem(mesh,Nodes,bcfun,OperatorType)
+  sol = solve(prob,mesh,param)
+
+  # save solution
+  vtkname = Path("test-data","stokes_as_soln")
+  sd = ScalarData(sol.p)
+  sn = ScalarNames("pressure")
+  vd = VectorData([sol.u,sol.v])
+  vn = VectorNames("velocity")
+  vtksave(mesh,sd,sn,vd,vn,vtkname)
+
+  rm("test-data/stokes_as_soln.vtk")
 end
 
 @testset "Multiphase Brinkman" begin
