@@ -1,9 +1,3 @@
-# File to be loaded into eFEMpart
-
-#############################
-###### Bilinear Forms #######
-#############################
-
 """
   localMass2D!()
 
@@ -1092,10 +1086,6 @@ function localStokesVarASAlternate!(mesh,el,xN,yN,w,s,t,Axt,Ayt,Bxt,Byt,
     end
   end
 end
-
-################################
-###### Support Functions #######
-################################
 
 function getNodes(mesh,el,nGaussNodes)
   xNodes = Array{Float64}(nGaussNodes); yNodes = Array{Float64}(nGaussNodes)

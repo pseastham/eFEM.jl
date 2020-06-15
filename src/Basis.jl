@@ -1,15 +1,9 @@
-# File loaded into eFEMpart
-
 import LinearAlgebra: dot
 
 """
   shape2D(s::Real,t::Real,order::Int)
 
 Computes shape functions of linear or quadratic order on a quadrilateral element
-
-ASSUMPTIONS:
-- Only available for quadratic elements
-- Assumes computing with double-precision arithmetic
 
 INPUT:
   s:      [Real]
@@ -101,7 +95,7 @@ end
   shape2D!(phi::Vector{T},dphids::Vector{T},dphidt::Vector{T},
            s::T,t::T,order::Int) where T<:Real
 
-in-place version of shape2D; see shape2D function info.
+In-place version of shape2D; see shape2D function info.
 """
 function shape2D!(phi,dphids,dphidt,s::T,t::T,order::Int) where T<:Real
   ein = one(s)
@@ -457,8 +451,6 @@ end
 	GaussQuadPoints1D(order)
 
 Produces Gauss Quadrature weights and points, normalized to (-1,1), for a given order
-
-Not really sure where this function is used...
 """
 function GaussQuadPoints1D(order::Int;tt=Float64::DataType)
 	w = zeros(tt,order)

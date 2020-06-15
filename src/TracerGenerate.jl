@@ -1,6 +1,3 @@
-# to be loaded into eFEMpart
-# code to generate tracers for flow fields
-
 abstract type AbstractTracerInfo end
 abstract type AbstractTracerSource end
 

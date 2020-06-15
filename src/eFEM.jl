@@ -29,8 +29,6 @@ include("DomainQuadrature.jl")
 include("PostProcessing.jl")
 include("TracerGenerate.jl")
 
-export AbstractMesh
-
 export getBoundaries
 
 # ParameterTypes.jl
@@ -41,9 +39,7 @@ export PoissonParam,
        FluidParam,
        BrinkmanParam,
        BrinkmanMPParam,
-       FluidVarParam,
-       AbstractVariableParameter,
-       AbstractConstantParameter
+       FluidVarParam
 
 # ProblemTypes.jl
 export Problem,
@@ -51,10 +47,6 @@ export Problem,
        Neumann,
        Robin,
        Forcing
-
-# SolutionsTypes.jl
-export ScalarSolution,
-       FluidSolution
 
 # MeshGeneration.jl
 export squareMesh,

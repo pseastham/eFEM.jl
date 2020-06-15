@@ -1,5 +1,3 @@
-  # File to be put into eFEMpart module
-
 struct Path
   folder::String
   file_name::String

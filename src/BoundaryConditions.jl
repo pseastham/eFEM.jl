@@ -1,5 +1,3 @@
-# File loaded into eFEMpart
-
 """
   scalarDirichlet!(dirichletNodes,dBCarr,Stiff,F)
 
@@ -13,8 +11,7 @@ function scalarDirichlet!(dirichletNodes,dBCarr,Stiff,F)
     d = dirichletNodes[i]
 
     for j=1:Nnodes
-      #for j in rvals
-      # adjust RHS with dirichlet BC
+      #for j in rvals, adjust RHS with dirichlet BC
       F[j] -= Stiff[j,d]*dBCarr[i]
 
       # zero out (dirichlet) BC locations

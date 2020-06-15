@@ -1,5 +1,3 @@
-# Code to be loaded into eFEMpart
-
 function computeStress(mesh::FluidMesh,fluidsol::FluidSolution,param::P) where P<:AbstractConstantParameter
     Nnodes = length(mesh.xy)
     Nel    = length(mesh.cm)

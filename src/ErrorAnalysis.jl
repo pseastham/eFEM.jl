@@ -1,5 +1,3 @@
-# File to be loaded into eFEMpart
-
 """
   DomainNorm(xy,cm,u;normID="Inf")
   

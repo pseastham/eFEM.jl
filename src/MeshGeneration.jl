@@ -1,5 +1,3 @@
-# File to be loaded into eFEMpart
-
 """
   meshgrid(vx::AbstractVector{T}, vy::AbstractVector{T}) where T<:Real
 

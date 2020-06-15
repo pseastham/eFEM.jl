@@ -1,5 +1,3 @@
-# File loaded into eFEMpart
-
 """
   linearInterp()
 
@@ -16,20 +14,6 @@ function linearInterp(x0,x1,x2,s1,s2)
   return s0
 end
 
-"""
-  onSegment(p,q,r) -> bool
-
-Given three colinear points p, q, r, the function checks if
-point q lies on line segment 'pr'
-"""
-#function onSegment(p,q,r)
-#  if (q[1] <= maximum([p[1], r[1]]) && q[1] >= minimum([p[1],r[1]]) &&
-#          q[2] <= maximum([p[2], r[2]]) && q[2] >= minimum([p[2], r[2]]))
-#      return true
-#  else
-#    return false
-#  end
-#end
 function distance(a,b)
     return sqrt((a[1] - b[1])^2 + (a[2] - b[2])^2)
 end
