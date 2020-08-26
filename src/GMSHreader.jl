@@ -354,6 +354,14 @@ function GMSH_EXTRACTBOUNDARY_ALL(bndNodes,total)
     D = sort(unique(bndNodes[:,4]))[2:end]
     E = sort(unique(bndNodes[:,5]))[2:end]
     return [A,B,C,D,E]
+  elseif total==6
+    A = sort(unique(bndNodes[:,1]))[2:end]
+    B = sort(unique(bndNodes[:,2]))[2:end]
+    C = sort(unique(bndNodes[:,3]))[2:end]
+    D = sort(unique(bndNodes[:,4]))[2:end]
+    E = sort(unique(bndNodes[:,5]))[2:end]
+    F = sort(unique(bndNodes[:,6]))[2:end]
+    return [A,B,C,D,E,F]
   else
     error("total=$(total) is too large for this file")
   end
