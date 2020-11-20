@@ -1,4 +1,4 @@
-# eFEM
+# eFEM.jl
 
 <!--[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://pseastham.github.io/eFEM.jl/stable)-->
 <!--[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://pseastham.github.io/eFEM.jl/dev)-->
@@ -8,7 +8,8 @@
 Finite Element code in the [Julia language](https://julialang.org/) focused on fluid-dynamics applications.
 
 This repository allows the use of Finite Elements discretizations to solve
-common problems in fluid dynamics. 
+common problems in fluid dynamics. Functionally, this package was designed to be used
+with the larger [eFEMpart.jl](https://github.com/pseastham/eFEMpart.jl), whichh also includes the ability to simulate particles.
 
 ## Installation
 
