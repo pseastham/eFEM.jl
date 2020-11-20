@@ -8,8 +8,8 @@
 Finite Element code in the [Julia language](https://julialang.org/) focused on fluid-dynamics applications.
 
 This repository allows the use of Finite Elements discretizations to solve
-common problems in fluid dynamics. Functionally, this package was designed to be used
-with the larger [eFEMpart.jl](https://github.com/pseastham/eFEMpart.jl), whichh also includes the ability to simulate particles.
+common problems in fluid dynamics. Functionally, this package is designed to be used
+with the larger [eFEMpart.jl](https://github.com/pseastham/eFEMpart.jl), which also includes the ability to simulate particles.
 
 ## Installation
 
