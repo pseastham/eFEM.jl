@@ -9,7 +9,7 @@ import LinearAlgebra: lu
 # General solver for scalar problems
 function solve(prob::Problem,mesh::S,param::T) where 
                 {S<:AbstractMesh,T<:AbstractParameter}
-  if !(prob.OperatorType in [:Poisson2D,:AdvDiff2D,:Stokes2D,:Darcy2D,:StokesAS,:AdvDiffAS,:Brinkman2D,:BrinkmanMP2D])
+  if !(prob.OperatorType in [:Poisson2D,:AdvDiff2D,:Stokes2D,:Darcy2D,:PoissonAS,:StokesAS,:AdvDiffAS,:Brinkman2D,:BrinkmanMP2D])
     error("operator type not recognized")
   end
 
@@ -111,6 +111,8 @@ function GenerateSystem(mesh::R,prob::S,param::T) where
   elseif prob.OperatorType == :StokesAS
     LinOp.Op,LinOp.rhs = StokesASMatrix(mesh,prob,param)
 
+  elseif prob.OperatorType == :PoissonAS
+    LinOp.Op,LinOp.rhs = LaplaceASMatrix(mesh,prob,param)
   end
 
   return LinOp
@@ -160,7 +162,7 @@ function ApplyBC!(LinOp::LinearOperator,mesh::S,prob::Problem,param::T,
     end
 
   # ADVECTION-DIFFUSION AXISYMMETRIC
-  elseif OpType == :AdvDiffAS
+  elseif OpType == :AdvDiffAS || OpType == :PoissonAS
     if :dNodes in bc(prob)
       scalarDirichlet!(prob.bcid[:dNodes],prob.bcval[:dBC],LinOp.Op,LinOp.rhs)
     end

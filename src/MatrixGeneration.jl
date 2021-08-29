@@ -105,6 +105,13 @@ function BrinkmanMP2DMatrix(mesh::FluidMesh,prob,param::T) where T<:AbstractVari
 	return Stiff, F
 end
 
+function LaplaceASMatrix(mesh,farr,param)
+    D     = assembleScalar(mesh,localLaplaceConstAS!,param.κ)
+    Stiff = A
+    F     = WeakScalarAS(mesh,farr)
+    return Stiff, F
+end
+
 function AdvDiffASMatrix(mesh,farr,param::T) where T<:AbstractVariableParameter
     D     = assembleScalar(mesh,localLaplaceVarAS!,param.Pe)
     A     = assembleScalar(mesh,localAdvDiffAS!,param)
