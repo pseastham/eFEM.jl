@@ -112,7 +112,7 @@ function GenerateSystem(mesh::R,prob::S,param::T) where
     LinOp.Op,LinOp.rhs = StokesASMatrix(mesh,prob,param)
 
   elseif prob.OperatorType == :PoissonAS
-    LinOp.Op,LinOp.rhs = LaplaceASMatrix(mesh,prob,param)
+    LinOp.Op,LinOp.rhs = LaplaceASMatrix(mesh,prob.bcval[:forcing],param)
   end
 
   return LinOp

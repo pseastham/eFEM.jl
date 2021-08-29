@@ -108,7 +108,7 @@ end
 function LaplaceASMatrix(mesh,farr,param)
     D     = assembleScalar(mesh,localLaplaceConstAS!,param.κ)
     Stiff = D
-    F     = WeakScalarAS(mesh,farr)
+    F     = WeakScalarAS(mesh, farr)
     return Stiff, F
 end
 
