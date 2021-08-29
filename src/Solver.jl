@@ -197,7 +197,7 @@ function LinearSolve!(sol::AbstractSolution,mesh::AbstractMesh,
                       LinOp::LinearOperator,prob::AbstractProblem,
                       param::AbstractParameter,OpType::Symbol)
   # POISSON 2D                  
-  if OpType == :Poisson2D
+  if OpType == :Poisson2D || OpType == :PoissonAS
     sol.u = GaussElimSolve(LinOp)
 
   # DARCY 2D 
@@ -227,7 +227,7 @@ function LinearSolve(mesh::AbstractMesh,
                       LinOp::LinearOperator,prob::AbstractProblem,
                       param::AbstractParameter,OpType::Symbol)
   # POISSON 2D                  
-  if OpType == :Poisson2D
+  if OpType == :Poisson2D || OpType == :PoissonAS
     u = GaussElimSolve(LinOp)
     #u = cg(LinOp.Op,LinOp.rhs)
 
